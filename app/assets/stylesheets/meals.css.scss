@@ -1,0 +1,36 @@
+#delete-edit-meal {
+    div {
+        display: inline-block;
+        width: 50%;
+        text-align: center;
+
+        &#delete-meal {
+            background: $orange;
+
+            a:hover {
+                background: lighten($orange, 10%);
+            }
+        }
+
+        &#edit-meal {
+            background: $darkBlue;
+
+            a:hover {
+                background: lighten($darkBlue, 10%);
+            }
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 22px;
+            padding: 20px 0;
+            transition: background 0.3s ease-in-out;
+
+            &:visited {
+                text-decoration: none;
+            }
+        }
+    }
+}

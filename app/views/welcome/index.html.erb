@@ -1,0 +1,39 @@
+    <div id="background">
+        <div id="background-darken">
+            <header class="clearfix">
+                <div class="wrapper-wide">
+                    <%= link_to 'EAT HEALTHIER', root_path, id: 'logo' %>
+                    <nav>
+                        <ul>
+                            <% unless user_signed_in? %>
+                                <li>
+                                    <%= link_to 'Sign In', new_user_session_path %>
+                                </li><li>
+                                    <a href="#">About</a>
+                                </li><li>
+                                    <a href="#">Recipes</a>
+                                </li>
+                            <% else %>
+                                <li>
+                                    <%= link_to 'Dashboard', dashboard_path %>
+                                </li><li>
+                                    <%= link_to 'My Profile', user_path(current_user) %>
+                                </li><li>
+                                    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+                                </li>
+                            <% end %>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="wrapper-wide">
+                <h1>
+                    Eat to fuel your body, not
+                    <br>
+                    to feed your emotions.
+                </h1>
+                <%= link_to 'Sign Up', new_user_registration_path, class: "button button-highlight" %>
+                <%= link_to 'Sign In', new_user_session_path, class: "button button-white" %>
+            </div>
+        </div>
+    </div>

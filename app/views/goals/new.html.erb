@@ -1,0 +1,22 @@
+<% content_for :banner do %>Goal<% end %>
+
+<% content_for :dashboard_page_body do %>
+<div id="add-meal">
+    <h2 class="section-title">Set Goal</h2>
+    <p class="section-moto">Choose what your goal is</p>
+
+    <div id="form" class="new-meal">
+        <div class="wrapper-600">
+            <%= form_for(@goal) do |f| %>
+                <div class="field">
+                    <%= f.label :goal_type, "Would you like to..." %>
+                    <%= f.select :goal_type, ["Loose weight", "Gain weight", "Keep current weight"] %>
+                </div>
+                <div class="field submit">
+                    <%= f.submit "Submit", class: "button button-highlight button-block" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<% end %>

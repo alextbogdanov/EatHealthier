@@ -1,0 +1,9 @@
+{
+  "name": "eathealthier",
+  "private": true,
+  "dependencies": {
+    "chart.js": "^2.7.2",
+    "highcharts": "^6.0.7",
+    "jquery": "^3.3.1"
+  }
+}

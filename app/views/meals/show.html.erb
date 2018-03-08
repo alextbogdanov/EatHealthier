@@ -1,0 +1,72 @@
+<% content_for :banner do %>Meals<% end %>
+
+<% content_for :dashboard_page_body do %>
+<div id="add-meal">
+    <h2 class="section-title">Meal Statistics</h2>
+    <p class="section-moto"><%= @meal.date.strftime("%A, %B %d, %Y") %></p>
+
+    <div id="form" class="new-meal" style="padding-bottom: 0; margin-bottom: 60px">
+        <div class="wrapper-600">
+            <div class="field">
+            <label>Meal Type</label>
+            <input type="text" value="<%= @meal.meal_type %>" disabled>
+            </div>
+        </div>
+    </div>
+
+    <div id="statistics" style="background-color: white; padding-top: 0">
+        <div class="wrapper-600">
+            <p class="progress-bar-title">Intake</p>
+            <div class="progress-bar">
+                <div class="progress carbs" style="width: <%= @meal.calc_percent_of_total_carbs %>%"></div><div class="progress proteins" style="width: <%= @meal.calc_percent_of_total_proteins %>%"></div><div class="progress fat" style="width: <%= @meal.calc_percent_of_total_fat %>%"></div>
+            </div>
+            <div class="progress-bar-label">
+                <div class="carbs" style="width: 33.33333%">
+                    <p><%= @meal.calc_percent_of_total_carbs  %>%</p>
+                </div><div class="proteins" style="width: 33.33333%">
+                    <p><%= @meal.calc_percent_of_total_proteins %>%</p>
+                </div><div class="fat" style="width: 33.33333%">
+                    <p><%= @meal.calc_percent_of_total_fat %>%</p>
+                </div>
+            </div>
+
+            <div class="keys">  
+                <div class="key">
+                    <div class="color carbs"></div>
+                    <p>Carbs <%= @meal.total_carbohydrates %> g</p>
+                </div>
+                <div class="key">
+                    <div class="color proteins"></div>
+                    <p>Proteins <%= @meal.total_proteins %> g</p>
+                </div>
+                <div class="key">
+                    <div class="color fat"></div>
+                    <p>Fat <%= @meal.total_fat %> g</p>
+                </div>
+            </div>
+
+            <div id="total-calories">
+                <h2>Total: <%= @meal.total_calories.round %> <span>Calories</span></h2>
+            </div>
+
+            <div id="breakdown">
+                <% @meal.foods.each do |food| %>
+                    <p class="label"><%= food.name %></p>
+                    <div class="row clearfix">
+                        <p class="count"><%= food.calories.round %> Cal</p>
+                        <a href="#" class="edit">Edit Food Item</a>
+                    </div>
+                <% end %>
+            </div>
+
+            <div id="delete-edit-meal">
+                <div id="delete-meal">
+                    <%= link_to "Delete Meal", meal_path(@meal), method: :delete, data: {confirm: "Are you sure?"} %>
+                </div><div id="edit-meal">
+                    <%= link_to "Edit Meal", edit_meal_path %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

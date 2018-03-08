@@ -1,0 +1,18 @@
+<% content_for :banner do %>
+    My Profile
+<% end %>
+
+<div id="form" class="sign-up">
+    <div class="wrapper-600 clearfix">
+        <p id="hello-title"><span>Hello, </span><%= @user.first_name %>!</p>
+        <ul>
+            <li>
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "cancel-account-button" %>
+            </li><li>
+                <p>or</p>
+            </li><li>
+                <%= link_to "Edit Goal", edit_goal_path, class: "cancel-account-button" %>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eathealthier</title>
+    <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if content_for?(:exclusive_javascript) %>
+         <%= javascript_include_tag yield(:exclusive_javascript), 'data-turbolinks-track': 'reload' %>
+    <% end %>
+  </head>
+  <body>
+  
+    <!-- Render Devise Notice -->
+    <% if notice %>
+        <div class="devise-notice">
+            <div class="wrapper-wide">
+                <p class="notice"><%= notice %></p>
+            </div>
+        </div>
+    <% elsif alert %>
+        <div class="devise-notice">
+            <div class="wrapper-wide">
+                <p class="alert"><%= alert %></p>
+            </div>
+        </div>
+    <% end %>
+
+    <!-- Render Top Navigation -->
+    <% unless !user_signed_in? && current_page?(root_path) %>
+        <%= render 'layouts/header' %>
+    <% end %>
+
+    <!-- Render Banner -->
+    <% if content_for?(:banner) %>
+        <%= render 'layouts/banner' %>
+    <% end %>
+
+    <!-- Render Dashboard Pages Navigation & Body -->
+    <% if content_for?(:dashboard_page_body) %>
+        <%= render 'layouts/dashboard_page_body' %>
+    <% end %>
+
+    <!-- Render Body -->
+    <%= yield %>
+    
+  </body>
+</html>

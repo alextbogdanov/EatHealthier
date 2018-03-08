@@ -1,0 +1,77 @@
+<% content_for :banner do %>
+    Edit Profile
+<% end %>
+
+<div id="form" class="sign-up">
+  <div class="wrapper-600">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field clearfix">
+        <div class="half-field left">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", required: true %>
+        </div>
+        <div class="half-field right">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, autocomplete: "last_name", required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autocomplete: "email", required: true %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, "New password" %> <i>(leave blank if you don't want to change it)</i>
+        <% if @minimum_password_length %>
+          <!-- <label><em><%= @minimum_password_length %> characters minimum</em></label> -->
+        <% end %>
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, "Confirm new password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+      <div class="field clearfix">
+        <div class="half-field left">
+          <%= f.label :age %>
+          <%= f.number_field :age, :step => 0.5, autocomplete: "age", required: true %>
+        </div>
+        <div class="half-field right">
+          <%= f.label :sex %>
+          <%= f.select :sex, ["Male", "Female"] %>
+        </div>
+      </div>
+
+      <div class="field clearfix">
+        <div class="half-field left">
+          <%= f.label :height %> <i>(cm)</i>
+          <%= f.number_field :height, :step => 'any', autocomplete: "off", required: true %>
+        </div>
+        <div class="half-field right">
+          <%= f.label :weight %> <i>(kg)</i>
+          <%= f.number_field :weight, :step => 'any', autocomplete: "off", required: true %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password %> <i>(we need it to save your changes)</i>
+        <%= f.password_field :current_password, autocomplete: "off", required: true %>
+      </div>
+
+      <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "cancel-account-button" %></p>
+
+      <div class="field">
+        <%= f.submit "Update", class: "button button-highlight button-block" %>
+      </div>
+    <% end %>
+  </div>
+</div>

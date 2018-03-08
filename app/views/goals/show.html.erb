@@ -1,0 +1,22 @@
+<% content_for :banner do %>Goal<% end %>
+
+<% content_for :dashboard_page_body do %>
+<div id="edit-goal">
+    <h2 class="section-title">Your Goal</h2>
+
+    <div id="form" class="new-meal" style="padding-bottom: 0; margin-bottom: 60px">
+        <div class="wrapper-600">
+            <div class="field" style="margin-top: 45px;">
+                <%= form_for @goal do |f| %>
+                    <%= f.label :goal_type, "You want to..." %>
+                    <%= f.text_field :goal_type, disabled: true %>
+                <% end %>
+            </div>
+            <div class="field">
+                <%= link_to 'Edit Goal', edit_goal_path, class: "cancel-account-button" %>
+                <%= link_to "Delete Goal", goal_path(@goal), method: :delete, data: {confirm: "Are you sure?"}, class: "cancel-account-button" %>
+            </div>
+        </div>
+    </div>
+</div>
+<% end %>

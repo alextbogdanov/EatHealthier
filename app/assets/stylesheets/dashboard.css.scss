@@ -1,0 +1,318 @@
+#dashboard-nav {
+    margin: 45px auto;
+
+    ul {
+        text-align: center;
+        border-bottom: 1px solid #dcdcdc;
+
+        li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 0 15px 15px;
+
+            a {
+                color: $darkGray;
+                text-decoration: none;
+                font-size: 1rem;
+                font-weight: 600;
+
+                &.active {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}
+
+.section-title {
+    color: $darkBlue;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: -10px;
+}
+
+.section-moto {
+    text-align: center;
+    color: $darkGray;
+    font-size: 1rem;
+    margin-bottom: 45px;
+}
+
+#meals-holder {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 45px;
+
+    .holder {
+        width: 120px;
+        margin: 0 30px;
+
+        a {
+            text-decoration: none;
+
+            &:visited {
+                text-decoration: none;
+            }
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .circle {
+            display: table-cell;
+            width: 120px;
+            height: 120px;
+            border-radius: 100%;
+            background: $darkGray;
+            color: #ffffff;
+            text-align: center;
+            vertical-align: middle;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background: lighten($darkGray, 10%);
+            }
+
+            p {
+                font-size: 2.3rem;
+            }
+
+
+            &.active {
+                background: $darkBlue;
+
+                &:hover {
+                    background: lighten($darkBlue, 10%);
+                }
+
+                p {
+                    font-size: 1.2rem;
+
+                    span {
+                        font-weight: 300;
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.wave {
+    display: block;
+    height: 52px;
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: center center;
+
+    &.statistics {
+        background-image: url("waves/statistics.svg");
+    }
+
+    &.trends {
+        background-image: url("waves/trends.svg");
+    }
+
+    &.recipes {
+        background-image: url("waves/recipes.svg")
+    }
+}
+
+#statistics {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+
+    .progress-bar-title {
+        color: $darkGray;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+    
+    .progress-bar {
+        display: block;
+        height: 20px;
+        margin: 10px 0 5px;
+
+        .progress {
+            display: inline-block;
+            height: 100%;
+
+            &.carbs {
+                background-color: $orange;
+            }
+
+            &.fat {
+                background-color: #aaaaaa;
+            }
+
+            &.proteins {
+                background-color: $darkBlue;
+            }
+        }
+    }
+
+    .progress-bar-label {
+        display: block;
+
+        div {
+            display: inline-block;
+            margin-top: 5px;
+            font-weight: 400;
+            text-align: center;
+
+            &.carbs {
+                color: $orange;
+            }
+
+            &.fat {
+                color: #aaaaaa;
+            }
+
+            &.proteins {
+                color: $darkBlue;
+            }
+
+            p {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .keys {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+
+        .key {
+            .color {
+                width: 15px;
+                height: 15px;
+                border-radius: 15px;
+                display: inline-block;
+
+                &.carbs {
+                    background-color: $orange;
+                }
+
+                &.fat {
+                    background-color: #aaaaaa;
+                }
+
+                &.proteins {
+                    background-color: $darkBlue;
+                }
+            }
+
+            p {
+                display: inline-block;
+                margin-left: 15px;
+            }
+        }
+    }
+
+    #total-calories {
+        margin: 30px 0 0;
+        padding: 30px 0;
+        background-color: $darkBlue;
+        color: #ffffff;
+        text-align: center;
+
+        h2 {
+            margin: 0;
+            margin-bottom: 5px;
+            font-weight: 400;
+            font-size: 30px;
+
+            span {
+                font-size: 20px;
+            }
+        }
+
+        p {
+            margin: 0;
+            font-weight: 300;
+        }
+    }
+
+    #breakdown {
+        background-color: #ffffff;
+        padding: 15px 10px;
+
+        .label {
+            color: #aaaaaa;
+            margin: 15px 0 5px;
+            text-transform: capitalize;
+        }
+
+        .row {
+            border-bottom: 1px solid #dcdcdc;
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+
+            p {
+                font-size: 18px;
+                margin: 0;
+                margin-bottom: 5px;
+
+                &.count {
+                    float: left;
+                    color: $darkBlue;
+                }
+            }
+
+            .edit {
+                text-decoration: none;
+                font-size: 18px;
+                float: right;
+                color: $orange;
+
+                &:visited {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    #add-meal {
+        text-decoration: none;
+        background: $darkBlue;
+        transition: background 0.3s ease;
+
+        &:visited {
+            text-decoration: none;
+        }
+
+        &:hover {
+            background: lighten($darkBlue, 10%);
+        }
+
+        div {
+            padding: 20px 0;
+
+            p {
+                color: #ffffff;
+                font-size: 28px;
+                text-align: center;
+                margin: 0;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+#trends {
+    padding: 60px 0;
+    background-color: #f8e8e4;
+}
+
+#recipes {
+    padding: 60px 0;
+    background-color: #ffffff;
+}

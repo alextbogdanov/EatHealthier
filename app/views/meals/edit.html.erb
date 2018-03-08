@@ -1,0 +1,42 @@
+<% content_for :exclusive_javascript do %>meals<% end %>
+<% content_for :banner do %>Meals<% end %>
+<% content_for :section_title do %>Edit Meal<% end %>
+
+<% content_for :dashboard_page_body do %>
+<div id="add-meal">
+    <h2 class="section-title"><%= yield(:section_title) %></h2>
+    <p class="section-moto"><%= @meal.date.strftime("%A, %B %d, %Y") %></p>
+
+    <div id="form" class="new-meal">
+        <div class="wrapper-600">
+            <%= form_for(@meal) do |f| %>
+                <div class="field">
+                    <%= f.label :meal_type %>
+                    <%= f.select :meal_type, ["Breakfast", "Lunch", "Dinner", "Morning Snack", "Afternoon Snack", "Evening Snack"] %>
+                </div>
+
+                <% @meal_foods.each do |mf| %>
+                    <div class="field">
+                        <label class="input-dropdown">Food Item</label>
+                        <%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.where(id: mf.food_id), "id", "name"), {:disabled => true} %>
+
+                        <ul class="sub-buttons">
+                            <li>
+                                <a href="javascript:void(0)" class="add-food">Add Food Item</a>
+                            </li><li>
+                                <a href="javascript:void(0)" class="delete-food">Delete Food Item</a>
+                            </li>
+                        </ul>
+                    </div>
+                <% end %>
+
+                <div class="field submit">
+                    <%= f.submit class: "button button-highlight button-block" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<% end %>
+<%= render 'meals_js' %>

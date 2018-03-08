@@ -1,0 +1,81 @@
+<% content_for :exclusive_javascript do %>meals<% end %>
+<% content_for :banner do %>Meals<% end %>
+<% content_for :section_title do %>Add Meal<% end %>
+
+<% content_for :dashboard_page_body do %>
+<div id="add-meal">
+    <h2 class="section-title"><%= yield(:section_title) %></h2>
+    <p class="section-moto"><%= Date.today.strftime("%A, %B %d, %Y") %></p>
+
+    <div id="form" class="new-meal">
+        <div class="wrapper-600">
+            <%= form_for(@meal) do |f| %>
+                <div class="field">
+                    <%= f.label :meal_type %>
+                    <% if params.has_key?(:meal_type) %>
+                        <%= f.select :meal_type, options_for_select([params[:meal_type]]) %>
+                    <% else %>
+                        <%
+                            @user = current_user
+                            @today = Date.today
+
+                            @mealBreakfast = Meal.where(meal_type: 'Breakfast', user_id: current_user, date: @today)
+                            @mealLunch = Meal.where(meal_type: 'Lunch', user_id: current_user, date: @today)
+                            @mealDinner = Meal.where(meal_type: 'Dinner', user_id: current_user, date: @today)
+                            @mealMorningSnack = Meal.where(meal_type: 'Morning Snack', user_id: current_user, date: @today)
+                            @mealAfternoonSnack = Meal.where(meal_type: 'Afternoon Snack', user_id: current_user, date: @today)
+                            @mealEveningSnack = Meal.where(meal_type: 'Evening Snack', user_id: current_user, date: @today)
+
+                            @currentMeals = []
+
+                            if @mealBreakfast.empty?
+                                @currentMeals.push("Breakfast")
+                            end
+
+                            if @mealLunch.empty?
+                                @currentMeals.push("Lunch")
+                            end
+
+                            if @mealDinner.empty?
+                                @currentMeals.push("Dinner")
+                            end
+
+                            if @mealMorningSnack.empty?
+                                @currentMeals.push("Morning Snack")
+                            end
+
+                            if @mealAfternoonSnack.empty?
+                                @currentMeals.push("Afternoon Snack")
+                            end
+
+                            if @mealEveningSnack.empty?
+                                @currentMeals.push("Evening Snack")
+                            end
+                        %>
+
+                        <%= f.select :meal_type, @currentMeals %>
+                    <% end %>
+
+                </div>
+
+                <div class="field">
+                    <label class="input-dropdown">Food Item</label>
+                    <%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.all, "id", "name") %>
+
+                    <ul class="sub-buttons">
+                        <li>
+                            <a href="javascript:void(0)" class="add-food">Add Food Item</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="field submit">
+                    <%= f.submit class: "button button-highlight button-block" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<% end %>
+<%= render 'meals_js' %>

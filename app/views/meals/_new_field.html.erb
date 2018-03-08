@@ -1,0 +1,9 @@
+<%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.all, "id", "name") %>
+
+<ul class="sub-buttons">
+    <li>
+        <a href="javascript:void(0)" class="add-food">Add Food Item</a>
+    </li><li>
+        <a href="javascript:void(0)" class="delete-food">Delete Food Item</a>
+    </li>
+</ul>

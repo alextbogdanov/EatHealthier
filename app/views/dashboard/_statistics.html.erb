@@ -1,0 +1,142 @@
+<div class="wave statistics"></div>
+
+<div id="statistics">
+    <div class="wrapper-600">
+        <h2 class="section-title">Statistics</h2>
+        <p class="section-moto"><%= Date.today.strftime("%A, %B %d, %Y") %></p>
+
+        <p class="progress-bar-title">Recommended intake</p>
+        <div class="progress-bar">
+            <div class="progress carbs" style="width: <%= @rec_percent_of_total_carbs %>%"></div><div class="progress proteins" style="width: <%= @rec_percent_of_total_proteins %>%"></div><div class="progress fat" style="width: <%= @rec_percent_of_total_fat %>%"></div>
+        </div>
+        <div class="progress-bar-label">
+            <div class="carbs" style="width: 33.33333%">
+                <p><%= @rec_percent_of_total_carbs %>%</p>
+            </div><div class="proteins" style="width: 33.33333%">
+                <p><%= @rec_percent_of_total_proteins %>%</p>
+            </div><div class="fat" style="width: 33.33333%">
+                <p><%= @rec_percent_of_total_fat %>%</p>
+            </div>
+        </div>
+
+        <div class="keys">
+            <div class="key">
+                <div class="color carbs"></div>
+                <p>Carbs <%= @rec_total_carbohydrates %> g</p>
+            </div>
+            <div class="key">
+                <div class="color proteins"></div>
+                <p>Proteins <%= @rec_total_proteins %> g</p>
+            </div>
+            <div class="key">
+                <div class="color fat"></div>
+                <p>Fat <%= @rec_total_fat %> g</p>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <p class="progress-bar-title">Actual intake</p>
+        <div class="progress-bar">
+            <div class="progress carbs" style="width: <%= @percent_of_total_carbs %>%"></div><div class="progress proteins" style="width: <%= @percent_of_total_proteins %>%"></div><div class="progress fat" style="width: <%= @percent_of_total_fat %>%"></div>
+        </div>
+        <div class="progress-bar-label">
+            <div class="carbs" style="width: 33.33333%">
+                <p><%= @percent_of_total_carbs %>%</p>
+            </div><div class="proteins" style="width: 33.33333%">
+                <p><%= @percent_of_total_proteins %>%</p>
+            </div><div class="fat" style="width: 33.33333%">
+                <p><%= @percent_of_total_fat %>%</p>
+            </div>
+        </div>
+
+        <div class="keys">
+            <div class="key">
+                <div class="color carbs"></div>
+                <p>Carbs <%= @total_carbohydrates %> g</p>
+            </div>
+            <div class="key">
+                <div class="color proteins"></div>
+                <p>Proteins <%= @total_proteins %> g</p>
+            </div>
+            <div class="key">
+                <div class="color fat"></div>
+                <p>Fat <%= @total_fat %> g</p>
+            </div>
+        </div>
+
+        <div id="total-calories">
+            <h2><%= @total_calories %> <span>Cal</span></h2>
+            <p>/ <%= @rec_total_calories %> <br> Recommended daily calories</p>
+        </div>
+
+        <div id="breakdown">
+            <% unless @breakfast.empty? %>
+                <p class="label">Breakfast</p>
+                <% @breakfast.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% unless @lunch.empty? %>
+                <p class="label">Lunch</p>
+                <% @lunch.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% unless @dinner.empty? %>
+                <p class="label">Dinner</p>
+                <% @dinner.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% unless @morning_snack.empty? %>
+                <p class="label">Morning Snack</p>
+                <% @morning_snack.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% unless @afternoon_snack.empty? %>
+                <p class="label">Afternoon Snack</p>
+                <% @afternoon_snack.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <% unless @evening_snack.empty? %>
+                <p class="label">Evening Snack</p>
+                <% @evening_snack.each do |f| %>
+                    <div class="row clearfix">
+                        <p class="count"><%= f.total_calories %> Cal</p>
+                        <a href="<%= meal_path(f.id) %>" class="edit">Edit Meal</a>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+        <a href="<%= new_meal_path %>" id="add-meal">
+            <div id="add-meal">
+                <p>Add Meal</p>
+            </div>
+        </a>
+    </div>
+</div>

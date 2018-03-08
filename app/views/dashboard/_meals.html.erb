@@ -1,0 +1,140 @@
+<div id="meals">
+    <div class="wrapper-600">
+        <h2 class="section-title">Meals</h2>
+        <p class="section-moto"><%= Date.today.strftime("%A, %B %d, %Y") %></p>
+
+        <div id="meals-holder">
+            <div class="holder">
+                <% unless @breakfast.blank? %>
+                    <% @breakfast.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Breakfast") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Breakfast</p>
+            </div>
+
+            <div class="holder">
+                <% unless @lunch.blank? %>
+                    <% @lunch.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Lunch") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Lunch</p>
+            </div>
+
+            <div class="holder">
+                <% unless @dinner.blank? %>
+                    <% @dinner.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Dinner") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Dinner</p>
+            </div>
+
+            <div class="holder">
+                <% unless @morning_snack.blank? %>
+                    <% @morning_snack.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Morning Snack") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Morning Snack</p>
+            </div>
+
+            <div class="holder">
+                <% unless @afternoon_snack.blank? %>
+                    <% @afternoon_snack.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Afternoon Snack") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Afternoon Snack</p>
+            </div>
+
+            <div class="holder">
+                <% unless @evening_snack.blank? %>
+                    <% @evening_snack.each do |f| %>
+                        <a href="<%= meal_path(f.id) %>">
+                            <div class="circle active">
+                                <p>
+                                    <%= f.total_calories.round %><br>
+                                    <span>Cal</span>
+                                </p>
+                            </div>
+                        </a>
+                    <% end %>
+                <% else %>
+                    <a href="<%= new_meal_path(:meal_type => "Evening Snack") %>">
+                        <div class="circle">
+                            <p>+</p>
+                        </div>
+                    </a>
+                <% end %>
+                <p>Evening <br> Snack</p>
+            </div>
+        </div>
+    </div>
+</div>
