@@ -38,6 +38,8 @@ gem 'simple_form', '~> 3.5', '>= 3.5.1'
 gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'autoprefixer-rails', '~> 8.1', '>= 8.1.0.1'
+gem 'aws-sdk', '~> 3'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
