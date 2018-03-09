@@ -1,6 +1,6 @@
 #background {
     height: 100vh;
-    background-image: url('homepage_background.jpg');
+    background-image: url('<%= asset_path("homepage_background.jpg") %>');
     background-size: cover;
     background-position: center;
     text-align: center;
