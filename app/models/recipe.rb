@@ -10,4 +10,13 @@ class Recipe < ApplicationRecord
     # Paperclip
     has_attached_file :image, styles: { medium: "600x600>"}
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+    # Search recipes method
+    def self.search(search)
+        if search
+            where('title LIKE ?', "%#{search.capitalize}")
+        else
+            all.order("created_at DESC")
+        end
+    end
 end

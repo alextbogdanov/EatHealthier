@@ -7,7 +7,9 @@
 </style>
 
 <div class="recipe-wrapper">
+    <%= render 'search' %>
     <div class="wrapper-wide">
+
         <ul class="recipe-holder">
             <% @recipe.each do |recipe| %>
                 <%= link_to recipe do %>

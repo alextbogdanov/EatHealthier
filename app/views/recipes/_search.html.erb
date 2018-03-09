@@ -1,0 +1,8 @@
+<div class="wrapper-600">
+    <div class="search-field clearfix">
+        <%= form_tag recipes_path, method: 'get' do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search for a recipe here..." %>
+                <%= submit_tag "Search", name: nil %>
+        <% end %>
+    </div>
+</div>
