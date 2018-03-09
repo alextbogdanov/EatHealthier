@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :goals
 
+  resources :recipes
+
   # Redirect to root_path if no route matches
   match "*path" => redirect("/"), via: [:get, :post]
 end

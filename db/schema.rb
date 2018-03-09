@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308095727) do
+ActiveRecord::Schema.define(version: 20180309053138) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20180308095727) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "directions", force: :cascade do |t|
+    t.text "step"
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_directions_on_recipe_id"
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.float "calories"
@@ -59,6 +67,14 @@ ActiveRecord::Schema.define(version: 20180308095727) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.integer "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "meal_foods", force: :cascade do |t|
@@ -83,6 +99,21 @@ ActiveRecord::Schema.define(version: 20180308095727) do
     t.index ["user_id"], name: "index_meals_on_user_id"
   end
 
+  create_table "recipes", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.float "calories"
+    t.float "carbohydrates"
+    t.float "proteins"
+    t.float "fat"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -102,10 +133,10 @@ ActiveRecord::Schema.define(version: 20180308095727) do
     t.float "height", null: false
     t.float "weight", null: false
     t.string "sex", null: false
-    t.float "recommended_calories_per_day"
-    t.float "recommended_carbohydrates_per_day"
-    t.float "recommended_proteins_per_day"
-    t.float "recommended_fat_per_day"
+    t.float "recommended_calories_per_day", default: 0.0
+    t.float "recommended_carbohydrates_per_day", default: 0.0
+    t.float "recommended_proteins_per_day", default: 0.0
+    t.float "recommended_fat_per_day", default: 0.0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

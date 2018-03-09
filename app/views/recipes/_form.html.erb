@@ -1,0 +1,33 @@
+<%= simple_form_for @recipe do |f| %>
+    <div class="field">
+        <h3>Recipe</h3>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :calories %>
+        <%= f.input :carbohydrates %>
+        <%= f.input :proteins %>
+        <%= f.input :fat %>
+        <%= f.input :image, as: :file %>
+
+        <h3>Ingredients</h3>
+        <div id="ingredients">
+            <%= f.simple_fields_for :ingredients do |ingredient| %>
+                <%= render 'ingredient_fields', f: ingredient %>
+
+                <%= link_to_add_association 'Add ingredient', f, :ingredients %>
+            <% end %>
+
+        </div>
+
+        <h3>Directions</h3>
+        <div id="directions">
+            <%= f.simple_fields_for :directions do |direction| %>
+                <%= render 'direction_fields', f: direction %>
+
+                <%= link_to_add_association 'Add Step', f, :directions %>
+            <% end %>
+        </div>
+
+        <%= f.button :submit, class: "button button-highlight button-block" %>
+    </div>
+<% end %>

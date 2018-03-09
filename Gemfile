@@ -33,6 +33,10 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'chartkick', '~> 2.3', '>= 2.3.2'
 gem 'groupdate', '~> 4.0'
 gem 'activeadmin', '~> 1.2', '>= 1.2.1'
+gem 'simple_form', '~> 3.5', '>= 3.5.1'
+gem 'paperclip', '~> 5.2', '>= 5.2.1'
+gem 'cocoon', '~> 1.2', '>= 1.2.11'
+gem 'autoprefixer-rails', '~> 8.1', '>= 8.1.0.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

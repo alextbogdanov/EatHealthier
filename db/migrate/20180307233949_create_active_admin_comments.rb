@@ -3,8 +3,8 @@ class CreateActiveAdminComments < ActiveRecord::Migration::Current
     create_table :active_admin_comments do |t|
       t.string :namespace
       t.text   :body
-      t.integers :resource, polymorphic: true
-      t.integers :author, polymorphic: true
+      t.references :resource, polymorphic: true
+      t.references :author, polymorphic: true
       t.timestamps
     end
     add_index :active_admin_comments, [:namespace]

@@ -1,0 +1,27 @@
+<% content_for :banner do %>Recipes<% end %>
+
+<style>
+    body {
+        background-color: #fafafa;
+    }
+</style>
+
+<div class="recipe-wrapper">
+    <div class="wrapper-wide">
+        <ul>
+            <% @recipe.each do |recipe| %>
+                <%= link_to recipe do %>
+                    <div class="recipe">
+                        <div class="thumbnail" style="background-image: url(<%= recipe.image.url(:medium) %>)">
+                            <div class="thumbnail-overlay"></div>
+                        </div>
+
+                        <div class="content">
+                            <h3><%= recipe.title %></h3>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+        <ul>
+    </div>
+</div>

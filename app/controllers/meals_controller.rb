@@ -11,6 +11,7 @@ class MealsController < ApplicationController
 
     def create
         @meal = current_user.meals.new(meal_params)
+        
 
         if @meal.save
             @today = Date.today
@@ -18,7 +19,7 @@ class MealsController < ApplicationController
             @meal.update(total_calories: @meal.calc_total_calories, total_carbohydrates:    @meal.calc_total_carbohydrates, total_proteins: @meal.calc_total_proteins, total_fat: @meal.calc_total_fat, date: @today)
 
 
-            redirect_to @meal
+            redirect_to @meal, notice: "Successfully created meal."
         else
             render 'new'
         end
@@ -35,7 +36,7 @@ class MealsController < ApplicationController
         if @meal.update(meal_params)
             @meal.update(total_calories: @meal.calc_total_calories, total_carbohydrates:    @meal.calc_total_carbohydrates, total_proteins: @meal.calc_total_proteins, total_fat: @meal.calc_total_fat)
 
-            redirect_to @meal
+            redirect_to @meal, notice: "Successfully updated meal."
         else
             render 'edit'
         end
@@ -43,7 +44,7 @@ class MealsController < ApplicationController
 
     def destroy
         @meal.destroy
-        redirect_to dashboard_path
+        redirect_to root_path, notice: "Successfully deleted meal."
     end
 
     private

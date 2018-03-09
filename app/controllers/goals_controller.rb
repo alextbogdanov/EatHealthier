@@ -65,6 +65,8 @@ class GoalsController < ApplicationController
 			@recommended_carbohydrates_per_day = @user.recommended_carbohydrates_per_day - (0.2 * @user.recommended_carbohydrates_per_day).round(1)
 		elsif @goal.goal_type == "Gain weight"
 			@recommended_carbohydrates_per_day = @user.recommended_carbohydrates_per_day + (0.25 * @user.recommended_carbohydrates_per_day).round(1)
+		else
+			@recommended_carbohydrates_per_day = @user.recommended_carbohydrates_per_day.round(1)
 		end
 
 		@user.update(recommended_carbohydrates_per_day: @recommended_carbohydrates_per_day)
