@@ -8,37 +8,37 @@ class RecipesController < ApplicationController
     def show
     end
 
-    def new
-        @recipe = Recipe.new
-        @recipe.ingredients.build
-        @recipe.directions.build
-    end
+    # def new
+    #     @recipe = Recipe.new
+    #     @recipe.ingredients.build
+    #     @recipe.directions.build
+    # end
 
-    def create
-        @recipe = Recipe.new(recipe_params)
+    # def create
+    #     @recipe = Recipe.new(recipe_params)
 
-        if @recipe.save
-            redirect_to @recipe, notice: "Successfully created recipe."
-        else
-            render 'new'
-        end
-    end
+    #     if @recipe.save
+    #         redirect_to @recipe, notice: "Successfully created recipe."
+    #     else
+    #         render 'new'
+    #     end
+    # end
 
-    def edit
-    end
+    # def edit
+    # end
 
-    def update
-        if @recipe.update(recipe_params)
-            redirect_to @recipe, notice: "Successfully updates recipe."
-        else
-            render 'edit'
-        end
-    end
+    # def update
+    #     if @recipe.update(recipe_params)
+    #         redirect_to @recipe, notice: "Successfully updates recipe."
+    #     else
+    #         render 'edit'
+    #     end
+    # end
 
-    def destroy
-        @recipe.destroy
-        redirect_to root_path, notice: "Successfully deleted recipe."
-    end
+    # def destroy
+    #     @recipe.destroy
+    #     redirect_to root_path, notice: "Successfully deleted recipe."
+    # end
 
     private
 
