@@ -89,16 +89,83 @@
         }
     }
 
-    .recipe {
-        position: relative;
-        display: inline-block;
-        margin: 0 auto;
-        width: 30%;
-        min-width: 300px;
-        background-color: #ffffff;
+    .recipe-holder {
+        padding: 0;
+        margin: 0;
+        -ms-box-orient: horizontal;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
         
-        .content {
-            padding: 0 15px 15px;
+        .recipe {
+            width: 300px;
+            background-color: #ffffff;
+            margin: 10px;
+            
+            .thumbnail-holder {
+                position: relative;
+                width: 100%;
+                height: 150px;
+                overflow: hidden;
+    
+                .thumbnail {
+                    width: 100%;
+                    height: 100%;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    transition: all 0.3s ease-in-out;
+
+                    .thumbnail-overlay {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba($darkBlue, 0.5);
+                    }
+                }
+            }
+
+            .content {
+                padding: 0 15px;
+
+                h3 {
+                    color: $darkBlue;
+                    text-align: center;
+                    font-size: 26px;
+                    margin: 15px 0;
+
+                    &:visited {
+                        color: $darkBlue;
+                    }
+                }
+            }
+
+            .read-recipe {
+                width: 100%;
+                background-color: $orange;
+                padding: 2.5px 0;
+                transition: all 0.3s ease-in-out;
+
+                &:hover {
+                    background-color: lighten($orange, 7%);
+                }
+
+                p {
+                    text-align: center;
+                    color: #ffffff;
+                }
+            }
+
+            &:hover, &:focus {
+                .thumbnail {
+                    transform: scale(1.2);
+                }
+            }
         }
     }
 }
