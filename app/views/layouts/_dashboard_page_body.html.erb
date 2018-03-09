@@ -3,15 +3,15 @@
         <div class="wrapper-600">
             <ul>
                 <li>
-                    <a href="#" class="active">Meals</a>
+                    <%= link_to "Meals", dashboard_path(:anchor => "meals"), class: "active" %>
                 </li><li>
-                    <a href="#">Statistics</a>
+                    <%= link_to "Statistics", dashboard_path(:anchor => "statistics") %>
                 </li><li>
-                    <a href="#">Trends</a>
+                    <%= link_to "Trends", dashboard_path(:anchor => "trends") %>
                 </li><li>
-                    <a href="#">Goals</a>
+                    <%= link_to "Goal", edit_goal_path(current_user.goal) %>
                 </li><li>
-                    <a href="#">Recipes</a>
+                    <%= link_to "Recipes", recipes_path %>
                 </li>
             </ul>
         </div>
