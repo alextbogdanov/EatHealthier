@@ -9,7 +9,8 @@
 <div class="recipe-wrapper">
     <div class="wrapper-600">
         <div id="recipe">
-            <div class="background-thumbnail" style="background-image: url(<%= @recipe.image.url(:medium) %>)">
+            <div class="background-thumbnail"
+                style="background-image: url('<%= asset_path(<%= @recipe.image.url(:medium) %>')">
                 <div class="overlay">
                 </div>
             </div>
