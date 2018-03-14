@@ -49,6 +49,8 @@ class User < ApplicationRecord
         end
 
         @user.update(recommended_calories_per_day: @recommended_calories_per_day, recommended_proteins_per_day: @recommended_proteins_per_day, recommended_carbohydrates_per_day: @recommended_carbohydrates_per_day, recommended_fat_per_day: @recommended_fat_per_day)
+
+        return @recommended_carbohydrates_per_day
     end
 
     def calc_total_nutrition
