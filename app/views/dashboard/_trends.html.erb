@@ -6,10 +6,10 @@
         <p class="section-moto"><%= (Date.today - 1.month).strftime("%B %d, %Y") %> - <%= Date.today.strftime("%B %d, %Y") %></p>
 
         <%= line_chart [
-            {name: "Calories", data: Meal.where(:date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_calories)},
-            {name: "Carbohydrates", data: Meal.where(:date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_carbohydrates)},
-            {name: "Proteins", data: Meal.where(:date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_proteins)},
-            {name: "Fat", data: Meal.where(:date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_fat)},
+            {name: "Calories", data: Meal.where(user_id: current_user, :date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_calories)},
+            {name: "Carbohydrates", data: Meal.where(user_id: current_user, :date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_carbohydrates)},
+            {name: "Proteins", data: Meal.where(user_id: current_user, :date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_proteins)},
+            {name: "Fat", data: Meal.where(user_id: current_user, :date => (Date.today - 1.month)..(Date.today)).group_by_day(:date).sum(:total_fat)},
         ], download: true %>
     </div>
 </div>
