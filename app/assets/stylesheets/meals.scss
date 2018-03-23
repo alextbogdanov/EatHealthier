@@ -34,3 +34,15 @@
         }
     }
 }
+
+#back-button-field {
+    margin-top: 15px;
+
+    .back-button {
+        color: $orange;
+
+        &:visited {
+            color: $orange;
+        }
+    }
+}

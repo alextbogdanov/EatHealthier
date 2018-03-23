@@ -15,11 +15,11 @@ class DashboardController < ApplicationController
 
         @total_nutrition = @total_carbohydrates + @total_proteins + @total_fat
 
-        @percent_of_total_carbs =  (@total_carbohydrates.to_f / @total_nutrition.to_f * 100).round(1)
+        @percent_of_total_carbs =  (@total_carbohydrates.to_f / @total_nutrition.to_f * 100).floor(1)
 
-        @percent_of_total_proteins = (@total_proteins.to_f / @total_nutrition.to_f * 100).round(1)
+        @percent_of_total_proteins = (@total_proteins.to_f / @total_nutrition.to_f * 100).floor(1)
     
-        @percent_of_total_fat = (@total_fat.to_f / @total_nutrition.to_f * 100).round(1)
+        @percent_of_total_fat = (@total_fat.to_f / @total_nutrition.to_f * 100).floor(1)
 
         recommended_nutritions
     end
@@ -49,10 +49,10 @@ class DashboardController < ApplicationController
 
         @rec_total_nutrition = @rec_total_carbohydrates + @rec_total_proteins + @rec_total_fat
 
-        @rec_percent_of_total_carbs = (@rec_total_carbohydrates.to_f / @rec_total_nutrition.to_f * 100).round(1)
+        @rec_percent_of_total_carbs = (@rec_total_carbohydrates.to_f / @rec_total_nutrition.to_f * 100).floor(1)
 
-        @rec_percent_of_total_proteins = (@rec_total_proteins.to_f / @rec_total_nutrition.to_f * 100).round(1)
+        @rec_percent_of_total_proteins = (@rec_total_proteins.to_f / @rec_total_nutrition.to_f * 100).floor(1)
 
-        @rec_percent_of_total_fat = (@rec_total_fat.to_f / @rec_total_nutrition.to_f * 100).round(1)
+        @rec_percent_of_total_fat = (@rec_total_fat.to_f / @rec_total_nutrition.to_f * 100).floor(1)
     end
 end

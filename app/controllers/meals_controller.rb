@@ -54,6 +54,7 @@ class MealsController < ApplicationController
     end
 
     def meal_params
-        params.require(:meal).permit(:user_id, :meal_type, :date, :total_calories, :total_carbohydrates, :total_fat, food_ids:[])
+        params.require(:meal).permit!
+        # .permit(:user_id, :meal_type, :date, :total_calories, :total_carbohydrates, :total_fat, food_ids:[])
     end
 end
