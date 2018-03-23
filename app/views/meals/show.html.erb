@@ -22,11 +22,11 @@
             </div>
             <div class="progress-bar-label">
                 <div class="carbs" style="width: 33.33333%">
-                    <p><%= @meal.calc_percent_of_total_carbs  %>%</p>
+                    <p><%= @meal.calc_percent_of_total_carbs.round(1)  %>%</p>
                 </div><div class="proteins" style="width: 33.33333%">
-                    <p><%= @meal.calc_percent_of_total_proteins %>%</p>
+                    <p><%= @meal.calc_percent_of_total_proteins.round(1) %>%</p>
                 </div><div class="fat" style="width: 33.33333%">
-                    <p><%= @meal.calc_percent_of_total_fat %>%</p>
+                    <p><%= @meal.calc_percent_of_total_fat.round(1) %>%</p>
                 </div>
             </div>
 

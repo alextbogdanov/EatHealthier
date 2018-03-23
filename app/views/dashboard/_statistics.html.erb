@@ -43,11 +43,11 @@
         </div>
         <div class="progress-bar-label">
             <div class="carbs" style="width: 33.33333%">
-                <p><%= if @percent_of_total_carbs >= 0 then  @percent_of_total_carbs else  "No Data" end %>%</p>
+                <p><%= if @percent_of_total_carbs >= 0 then  @percent_of_total_carbs.round(1) else  "No Data" end %>%</p>
             </div><div class="proteins" style="width: 33.33333%">
-                <p><%= if @percent_of_total_proteins >= 0 then @percent_of_total_proteins else "No Data" end %>%</p>
+                <p><%= if @percent_of_total_proteins >= 0 then @percent_of_total_proteins.round(1) else "No Data" end %>%</p>
             </div><div class="fat" style="width: 33.33333%">
-                <p><%= if @percent_of_total_fat >= 0 then @percent_of_total_fat else "No Data" end %>%</p>
+                <p><%= if @percent_of_total_fat >= 0 then @percent_of_total_fat.round(1) else "No Data" end %>%</p>
             </div>
         </div>
 
