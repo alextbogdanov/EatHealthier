@@ -11,11 +11,11 @@
         </div>
         <div class="progress-bar-label">
             <div class="carbs" style="width: 33.33333%">
-                <p><%= @rec_percent_of_total_carbs %>%</p>
+                <p><%= @rec_percent_of_total_carbs.round(1) %>%</p>
             </div><div class="proteins" style="width: 33.33333%">
-                <p><%= @rec_percent_of_total_proteins %>%</p>
+                <p><%= @rec_percent_of_total_proteins.round(1) %>%</p>
             </div><div class="fat" style="width: 33.33333%">
-                <p><%= @rec_percent_of_total_fat %>%</p>
+                <p><%= @rec_percent_of_total_fat.round(1) %>%</p>
             </div>
         </div>
 

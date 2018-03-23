@@ -49,10 +49,10 @@ class DashboardController < ApplicationController
 
         @rec_total_nutrition = @rec_total_carbohydrates + @rec_total_proteins + @rec_total_fat
 
-        @rec_percent_of_total_carbs = (@rec_total_carbohydrates.to_f / @rec_total_nutrition.to_f * 100).floor(1)
+        @rec_percent_of_total_carbs = ((@rec_total_carbohydrates.to_f / @rec_total_nutrition.to_f * 100 * 1000).round / 1000.00)
 
-        @rec_percent_of_total_proteins = (@rec_total_proteins.to_f / @rec_total_nutrition.to_f * 100).floor(1)
+        @rec_percent_of_total_proteins = ((@rec_total_proteins.to_f / @rec_total_nutrition.to_f * 100 * 1000).round / 1000.00)
 
-        @rec_percent_of_total_fat = (@rec_total_fat.to_f / @rec_total_nutrition.to_f * 100).floor(1)
+        @rec_percent_of_total_fat = ((@rec_total_fat.to_f / @rec_total_nutrition.to_f * 100 * 1000).round / 1000.00)
     end
 end
