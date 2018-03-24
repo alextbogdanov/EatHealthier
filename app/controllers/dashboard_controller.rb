@@ -15,11 +15,11 @@ class DashboardController < ApplicationController
 
         @total_nutrition = @total_carbohydrates + @total_proteins + @total_fat
 
-        @percent_of_total_carbs =  ((@total_carbohydrates.to_f / @total_nutrition.to_f * 100 * 1000).round / 1000.00)
+        @percent_of_total_carbs =  (@total_carbohydrates.to_f / @total_nutrition.to_f * 100)
 
-        @percent_of_total_proteins = ((@total_proteins.to_f / @total_nutrition.to_f * 100 * 1000).round / 1000.00)
+        @percent_of_total_proteins = (@total_proteins.to_f / @total_nutrition.to_f * 100)
     
-        @percent_of_total_fat = ((@total_fat.to_f / @total_nutrition.to_f * 100 * 1000).round / 1000.00)
+        @percent_of_total_fat = (@total_fat.to_f / @total_nutrition.to_f * 100)
 
         recommended_nutritions
     end
