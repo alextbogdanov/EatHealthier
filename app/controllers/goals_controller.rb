@@ -61,10 +61,10 @@ class GoalsController < ApplicationController
 	def update_carbs
 		@user = current_user
 
-		if @goal.goal_type == "Loose weight"
-			@recommended_carbohydrates_per_day = @user.recommended_carbohydrates_per_day - (0.2 * @user.recommended_carbohydrates_per_day).round(1)
+		if @goal.goal_type == "Lose weight"
+			@recommended_carbohydrates_per_day = @user.calc_recommended_nutrients_per_day - (0.2 * @user.calc_recommended_nutrients_per_day).round(1)
 		elsif @goal.goal_type == "Gain weight"
-			@recommended_carbohydrates_per_day = @user.recommended_carbohydrates_per_day + (0.25 * @user.recommended_carbohydrates_per_day).round(1)
+			@recommended_carbohydrates_per_day = @user.calc_recommended_nutrients_per_day + (0.25 * @user.calc_recommended_nutrients_per_day).round(1)
 		else
 			@recommended_carbohydrates_per_day = @user.calc_recommended_nutrients_per_day.round(1)
 		end
