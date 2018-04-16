@@ -82,16 +82,18 @@ class DashboardController < ApplicationController
         
         @queryRecipe = RecommendedRecipe.where(user_id: current_user.id, day: @today)
         
-        @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
-        
             if @queryRecipe.blank?
                 get_recommended_recipes
+
+                @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
 
                 @newRecRecipe = RecommendedRecipe.create(meals_response: @recRecipes.to_json, total_calories: @totalCalories, total_proteins: @totalProteins, total_fat: @totalFat, total_carbohydrates: @totalCarbohydrates, day: @today, user_id: current_user.id)
 
                 @newRecRecipe.save
             
             else
+                @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
+
                 if @queryRecipe[0].day != @today
                     get_recommended_recipes
                     @recRecipe.update(meals_response: @recRecipes, total_calories: @totalCalories, total_proteins: @totalProteins, total_fat: @totalFat, total_carbohydrates: @totalCarbohydrates, day: @today)
