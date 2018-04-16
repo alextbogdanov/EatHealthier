@@ -2,6 +2,22 @@
 
 <div id="recipes">
     <div class="wrapper-600">
-        <h2 class="section-title" style="margin-bottom: 45px">Recommended Recipes</h2>
+        <h2 class="section-title">Recommended Recipes</h2>
+        <p class="section-moto"><%= Date.today.strftime("%A, %B %d, %Y") %></p>
+
+    </div>
+    <div class="wrapper-800">
+        <div id="recipes-holder">
+            <% @recipeMeals.each do |recipe| %>
+                <div class="recipe">
+                    <div class="recipe-image" style="background-image: url('https://spoonacular.com/recipeImages/<%= recipe['image'] %>')">
+                    </div>
+                    <div class="recipe-info">
+                        <h3><%= recipe['title'] %></h3>
+                        <p><span>Ready in:</span> <%= recipe['readyInMinutes'] %> minutes</p>
+                    </div>
+                </div>
+            <% end %>
+        </div>
     </div>
 </div>

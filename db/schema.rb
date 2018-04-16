@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309053138) do
+ActiveRecord::Schema.define(version: 20180413183637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,6 +117,19 @@ ActiveRecord::Schema.define(version: 20180309053138) do
     t.float "fat"
   end
 
+  create_table "recommended_recipes", force: :cascade do |t|
+    t.string "meals_response"
+    t.integer "total_calories"
+    t.integer "total_proteins"
+    t.integer "total_fat"
+    t.integer "total_carbohydrates"
+    t.date "day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_recommended_recipes_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -144,4 +157,5 @@ ActiveRecord::Schema.define(version: 20180309053138) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "recommended_recipes", "users"
 end

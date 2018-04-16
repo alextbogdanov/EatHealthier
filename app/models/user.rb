@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
     has_many :meals, dependent: :destroy
     has_one :goal, dependent: :destroy
+    has_one :recommended_recipe, dependent: :destroy
 
     def calc_recommended_nutrients_per_day
         @user = self

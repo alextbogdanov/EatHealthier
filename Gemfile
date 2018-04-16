@@ -39,7 +39,7 @@ gem 'paperclip', '~> 5.2', '>= 5.2.1'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'autoprefixer-rails', '~> 8.1', '>= 8.1.0.1'
 gem 'aws-sdk', '~> 3'
-
+gem 'rest-client', '~> 2.0', '>= 2.0.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

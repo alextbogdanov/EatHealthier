@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meals_response: MyString
+  total_calories: 1
+  total_proteins: 1
+  total_fat: 1
+  total_carbohydrates: 1
+  day: 2018-04-13
+
+two:
+  meals_response: MyString
+  total_calories: 1
+  total_proteins: 1
+  total_fat: 1
+  total_carbohydrates: 1
+  day: 2018-04-13
