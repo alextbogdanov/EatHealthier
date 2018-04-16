@@ -8,7 +8,7 @@ class RecommendedRecipes < ActiveRecord::Migration[5.1]
         t.integer :total_fat
         t.integer :total_carbohydrates
         t.date :day
-        t.references :user
+  
   
         t.timestamps
   end
