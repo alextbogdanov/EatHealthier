@@ -85,11 +85,11 @@ class DashboardController < ApplicationController
             if @queryRecipe.blank?
                 get_recommended_recipes
 
-                @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
-
                 @newRecRecipe = RecommendedRecipe.create(meals_response: @recRecipes.to_json, total_calories: @totalCalories, total_proteins: @totalProteins, total_fat: @totalFat, total_carbohydrates: @totalCarbohydrates, day: @today, user_id: current_user.id)
 
                 @newRecRecipe.save
+
+                redirect_to(dashboard_path)
             
             else
                 @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
