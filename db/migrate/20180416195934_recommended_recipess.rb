@@ -9,5 +9,6 @@ class RecommendedRecipes < ActiveRecord::Migration[5.1]
       t.date :day
 
       t.timestamps
+    end
   end
 end
