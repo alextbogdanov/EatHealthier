@@ -183,38 +183,6 @@
         }
     }
 
-    .keys {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-between;
-
-        .key {
-            .color {
-                width: 15px;
-                height: 15px;
-                border-radius: 15px;
-                display: inline-block;
-
-                &.carbs {
-                    background-color: $orange;
-                }
-
-                &.fat {
-                    background-color: #aaaaaa;
-                }
-
-                &.proteins {
-                    background-color: $darkBlue;
-                }
-            }
-
-            p {
-                display: inline-block;
-                margin-left: 15px;
-            }
-        }
-    }
-
     #total-calories {
         margin: 30px 0 0;
         padding: 30px 0;
@@ -306,6 +274,43 @@
         }
     }
 }
+
+.keys {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .key {
+        .color {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            display: inline-block;
+
+            &.calories {
+                background-color: #5d6971;
+            }
+
+            &.carbs {
+                background-color: $orange;
+            }
+
+            &.fat {
+                background-color: #aaaaaa;
+            }
+
+            &.proteins {
+                background-color: $darkBlue;
+            }
+        }
+
+        p {
+            display: inline-block;
+            margin-left: 15px;
+        }
+    }
+}
+
 
 #trends {
     padding: 60px 0;

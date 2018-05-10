@@ -94,6 +94,11 @@ class DashboardController < ApplicationController
             else
                 @recipeMeals = JSON.parse(@queryRecipe[0].meals_response)
 
+                @recipeTotalCalories = @queryRecipe[0].total_calories
+                @recipeTotalCarbs = @queryRecipe[0].total_carbohydrates
+                @recipeTotalProteins = @queryRecipe[0].total_proteins
+                @recipeTotalFat = @queryRecipe[0].total_fat
+
                 if @queryRecipe[0].day != @today
                     get_recommended_recipes
                     @recRecipe.update(meals_response: @recRecipes, total_calories: @totalCalories, total_proteins: @totalProteins, total_fat: @totalFat, total_carbohydrates: @totalCarbohydrates, day: @today)

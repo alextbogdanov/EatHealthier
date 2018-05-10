@@ -19,5 +19,23 @@
                 </div>
             <% end %>
         </div>
+        <div class="keys">
+            <div class="key">
+                <div class="color calories"></div>
+                <p>Calories: <%= @recipeTotalCalories %>
+            </div>
+            <div class="key">
+                <div class="color carbs"></div>
+                <p>Carbs <%= @recipeTotalCarbs %> g</p>
+            </div>
+            <div class="key">
+                <div class="color proteins"></div>
+                <p>Proteins <%= @recipeTotalProteins %> g</p>
+            </div>
+            <div class="key">
+                <div class="color fat"></div>
+                <p>Fat <%= @recipeTotalFat %> g</p>
+            </div>
+        </div>
     </div>
 </div>
