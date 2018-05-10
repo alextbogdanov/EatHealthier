@@ -1,9 +1,12 @@
-<%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.all, "id", "name") %>
+<div class="field">
+    <label class="input-dropdown">Food Item</label>
+    <%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.all, "id", "name"), include_blank: true, class: "search-meals", data: {placeholder: "Select a food item"} %>
 
-<ul class="sub-buttons">
-    <li>
-        <a href="javascript:void(0)" class="add-food">Add Food Item</a>
-    </li><li>
-        <a href="javascript:void(0)" class="delete-food">Delete Food Item</a>
-    </li>
-</ul>
+    <ul class="sub-buttons">
+        <li>
+            <a href="javascript:void(0)" class="add-food">Add Food Item</a>
+        </li><li>
+            <a href="javascript:void(0)" class="delete-food">Delete Food Item</a>
+        </li>
+    </ul>
+</div>

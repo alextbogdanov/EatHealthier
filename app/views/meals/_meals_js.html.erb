@@ -1,16 +1,21 @@
 <script>
     $(document).ready(function() {
         $(document).on('click', '.add-food', function() {
-            var openingDiv = "<div class='field'>"
-            var label = "<label>Food Item</label>"
             var partial = "<%= escape_javascript(render partial: 'new_field') %>"
-            var closingDiv = "</div>"
 
-            $(openingDiv + label + partial + closingDiv).insertBefore(".submit");
+            $(partial).insertBefore(".submit");
+            
+            $('select.search-meals').select2({
+                placeholder: "Select a meal"
+            });
         })
         
         $(document).on('click', '.delete-food', function() {
             $(this).parent().parent().parent().remove();
         })
+
+        $('select.search-meals').select2({
+            placeholder: "Select a meal"
+        });
     })
 </script>

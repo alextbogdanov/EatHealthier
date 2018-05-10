@@ -18,7 +18,7 @@
                 <% @meal_foods.each do |mf| %>
                     <div class="field">
                         <label class="input-dropdown">Food Item</label>
-                        <%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.where(id: mf.food_id), "id", "name") %>
+                        <%= select_tag "meal[food_ids][]", options_from_collection_for_select(Food.where(id: mf.food_id), "id", "name"), include_blank: false, class: "search-meals" %>
 
                         <ul class="sub-buttons">
                             <li>

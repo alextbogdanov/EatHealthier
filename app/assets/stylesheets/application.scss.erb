@@ -300,6 +300,24 @@ body {
     }
 }
 
+.select2-container--default, .select2-selection--single {
+    background-color: #EDEFF5 !important;
+}
+
+.select2-selection__placeholder {
+    color: lighten($darkBlue, 15%) !important;
+}
+
+.select2-search__field {
+    outline: none;
+}
+
+.select2-results__option {
+    display: block;
+    width: 100%;
+    background-color: #EDEFF5;
+    box-sizing: border-box;
+}
 
 @import 'normalize';
 @import 'welcome';
@@ -308,3 +326,4 @@ body {
 @import 'users';
 @import 'recipes';
 @import 'responsive';
+@import 'select2';
